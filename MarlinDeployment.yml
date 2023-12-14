@@ -1,0 +1,42 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marlin1-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: marlin1-app
+  template:
+    metadata:
+      labels:
+        app: marlin1-app
+    spec:
+      containers:
+      - name: marlin
+        image: kobisha/marlin:v11
+        ports:
+        - containerPort: 443 # Expose port 443 for HTTPS
+        volumeMounts:
+          - name: marlin-secret
+            mountPath: /mnt/secrets/marlin-secret
+        env:
+          - name: ASPNETCORE_URLS
+            value: https://+:443 # Listen on HTTPS port
+      volumes:  # Define the volume here
+        - name: marlin-secret
+          secret:
+            secretName: marlin-secret  # The name of your Kubernetes Secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: marlin-lb-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: marlin1-app # Make sure this matches your Deployment labels
+  ports:
+    - port: 443
+      targetPort: 443 # Defaults to 443 for HTTPS
+  loadBalancerIP: "20.52.240.117"

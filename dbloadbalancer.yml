@@ -1,0 +1,20 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-lb-service
+spec:
+  selector:
+    app: postgres
+  ports:
+     - protocol: TCP
+       port: 5432
+       targetPort: 5432
+    
+  type: LoadBalancer
+  loadBalancerIP: "20.52.240.117"
+
+
+
+
+
+

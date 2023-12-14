@@ -1,0 +1,83 @@
+{
+  [
+    {
+      "AccountID": "M00001",
+      "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+      "DocumentNo": "000000002",
+      "SupplierID": "D00002",
+      "StartDate": "2018-07-01T00:00:00.000Z",
+      "EndDate": "",
+      "Status": "მოქმედებს",
+      "Condition": "შესყიდვის მიხედვით",
+      "IsMarketing": false,
+      "FundedByManufacturer": true,
+      "MinimalPercent": "",
+      "PlanAmount": "",
+      "PlanPercent":"",
+      "ManufacturerPercent": "1",
+      "Products": [
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "Barcode": "4637175504784",
+          "MinimalPercent": "10",
+          "PlanPercent": "",
+          "ManufacturerPercent": ""
+        },
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "Barcode": "4662574906568",
+          "MinimalPercent": "10",
+          "PlanPercent": "",
+          "ManufacturerPercent": ""
+        },
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "Barcode": "2200003000009",
+          "MinimalPercent": "10",
+          "PlanPercent": "",
+          "ManufacturerPercent": ""
+        },
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "Barcode": "4637175509074",
+          "MinimalPercent": "10",
+          "PlanPercent": "",
+          "ManufacturerPercent": ""
+        }
+      ],
+      "PlanRanges": [
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "RangeNo": "1",
+          "RangeName": "1-დან 1 - მდე",
+          "RangePercent": "1"
+        },
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "RangeNo": "2",
+          "RangeName": "2-დან 2 - მდე",
+          "RangePercent": "2"
+        },
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "RangeNo": "3",
+          "RangeName": "3-დან 3 - მდე",
+          "RangePercent": "3"
+        },
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "RangeNo": "4",
+          "RangeName": "4-დან 4 - მდე",
+          "RangePercent": "4"
+        },
+        {
+          "RetroBonusID": "19ac6fd7-7f9e-11e8-80ef-005056b569bf",
+          "RangeNo": "5",
+          "RangeName": "5 - ზე მეტი",
+          "RangePercent": "5"
+        }
+      ]
+    }
+  ]
+    
+}
