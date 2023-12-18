@@ -46,7 +46,7 @@ namespace Marlin.sqlite.Controllers
                 _context.OrderStatusHistory.Add(orderStatusHistory);
                 _context.SaveChanges();
 
-                return Ok(order);
+                return Ok(new { message = "Status updated successfully ." });
             }
             catch (Exception e)
             {

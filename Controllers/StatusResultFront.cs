@@ -45,7 +45,7 @@ namespace Marlin.sqlite.Controllers
                     Data = orderStatus
                 };
 
-                return Ok(new { message = "Status updated successfully." });
+                return Ok(response);
             }
             catch (Exception ex)
             {

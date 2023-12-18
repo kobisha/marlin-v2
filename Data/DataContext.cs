@@ -63,6 +63,7 @@ namespace Marlin.sqlite.Data
         public DbSet<OrderStatusResult> OrderStatusResults { get; set; }
         public DbSet<AccountData> AccountData { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
+        public DbSet<RetroBonusConditionFront> retroBonusConditionFronts { get; set; }
 
 
 
