@@ -38,7 +38,7 @@ namespace Marlin.sqlite.Controllers
 
         private bool IsValidLogin(string username, string password)
         {
-            // Implement your user authentication logic here
+            
             var user = _context.Users.FirstOrDefault(u => u.Email == username);
 
             if (user == null || user.Password != password)

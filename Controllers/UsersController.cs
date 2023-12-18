@@ -40,7 +40,7 @@ namespace Marlin.sqlite.Controllers
                 }
                 else
                 {
-                    users.UserID = 1001; // Set the first userID to 1001
+                    users.UserID = 1001; 
                 }
 
                 _context.Users.Add(users);
@@ -50,8 +50,8 @@ namespace Marlin.sqlite.Controllers
             }
             catch (Exception ex)
             {
-                //_logger.LogError(ex, "Error occurred while saving account to the database.");
-                Console.WriteLine(ex.Message); // Log or print the exception message for debugging purposes
+                
+                Console.WriteLine(ex.Message); 
                 return StatusCode(500, ex.Message);
             }
         }

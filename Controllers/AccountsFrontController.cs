@@ -4,8 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System;
 using System.Linq;
-using Marlin.sqlite.Data; // Replace 'YourNamespace' with the actual namespace for your data context
-using Marlin.sqlite.Models; // Replace 'YourNamespace' with the actual namespace for your models
+using Marlin.sqlite.Models; 
 using Microsoft.AspNetCore.Authorization;
 
 namespace Marlin.sqlite.Controllers
@@ -28,7 +27,7 @@ namespace Marlin.sqlite.Controllers
             try
             {
                 var query = @"
-                    -- Your SQL query here
+                    
                     SELECT
                         ac.""AccountID"",
                         ac.""LegalCode"",

@@ -68,11 +68,7 @@ namespace Marlin.sqlite.Controllers
                         orderToUpdate.StatusID = 2;
                     }
 
-                   /* foreach (var product in order.Products)
-                    {
-                        var barcode = _context.Barcodes.FirstOrDefault(b => b.ProductID == product.ProductID)?.Barcode;
-                        product.Barcode = barcode ?? ""; // Assign the barcode value to the temporary variable
-                    }*/
+                   
 
                     var orderStatusHistory = new OrderStatusHistory
                     {

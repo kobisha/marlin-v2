@@ -30,7 +30,7 @@ namespace Marlin.sqlite.Controllers
 
                 if (existingOrderDetails != null)
                 {
-                    // Convert ReservedQuantity from int to decimal
+                    
                     existingOrderDetails.ReservedQuantity = (decimal)orderDetailsUpdate.ReservedQuantity;
                 }
             }

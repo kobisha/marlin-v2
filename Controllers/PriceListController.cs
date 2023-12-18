@@ -45,17 +45,17 @@ namespace Marlin.sqlite.Controllers
 
                     if (existingItem != null)
                     {
-                        // If the item exists, update it
-                        existingItem.Unit = item.Unit; // Update other properties as needed
+                        
+                        existingItem.Unit = item.Unit; 
                         existingItem.Price = item.Price;
                         existingItem.LastPrice = item.LastPrice;
-                        // Update more properties...
+                        
 
                         _context.PriceList.Update(existingItem);
                     }
                     else
                     {
-                        // If the item doesn't exist, create a new one
+                        
                         _context.PriceList.Add(item);
                     }
                 }

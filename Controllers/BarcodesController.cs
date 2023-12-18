@@ -38,7 +38,7 @@ namespace Marlin.sqlite.Controllers
                         // Update the existing barcode's fields
                         existingBarcode.AccountId = accountid;
                         existingBarcode.ProductID = item.ProductID;
-                        // You can update other fields here if needed
+                        
                     }
                     else
                     {

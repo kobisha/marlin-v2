@@ -40,7 +40,7 @@ namespace Marlin.sqlite.Controllers
             }
             catch (Exception ex)
             {
-                //_logger.LogError(ex, "Error occurred while saving account to the database.");
+                
                 return StatusCode(500, "An error occurred while saving the account.");
             }
         }

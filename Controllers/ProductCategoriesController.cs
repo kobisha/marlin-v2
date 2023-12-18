@@ -41,7 +41,7 @@ namespace Marlin.sqlite.Controllers
                         existingCategory.ParentFolder = item.ParentFolder;
                         existingCategory.Code = item.Code;
                         existingCategory.Name = item.Name;
-                        // You can update other fields here if needed
+                        
                     }
                     else
                     {
@@ -64,44 +64,7 @@ namespace Marlin.sqlite.Controllers
             }
         }
 
-        /*[HttpGet]
-
-        public IActionResult GetData(int page = 1, int pageSize = 10)
-        {
-            try
-            {
-                var totalCount = _context.ProductCategories.Count();
-
-                var data = _context.ProductCategories
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToList();
-
-                var formattedData = data.Select(d => new
-                {
-
-                    AccountID = d.AccountID,
-                    categoryid = d.CategoryID,
-                    parentFolder = d.ParentFolder,
-                    code = d.Code,
-                    name = d.Name
-
-
-                    // Add more fields as necessary, following the same pattern
-                });
-
-                var response = new
-                {
-                    TotalCount = totalCount,
-                    Page = page,
-                    PageSize = pageSize,
-                    Data = formattedData,
-                    PreviousPage = page > 1 ? Url.Action("GetData", new { page = page - 1, pageSize }) : null,
-                    NextPage = page < (totalCount + pageSize - 1) / pageSize ? Url.Action("GetData", new { page = page + 1, pageSize }) : null
-                };
-
-                return Ok(response);
-            }*/
+       
         [HttpGet]
 
         public async Task<IActionResult> GetShops(string AccountID)

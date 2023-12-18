@@ -104,7 +104,7 @@ namespace Marlin.sqlite.Controllers
             }
             catch (Exception ex)
             {
-                // Handle exceptions
+                
                 var errorMessage = $"Failed to create or update invoices: {ex.Message}";
                 if (ex.InnerException != null)
                 {

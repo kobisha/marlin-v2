@@ -72,33 +72,13 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddHttpContextAccessor();
-/*builder.Services.AddHttpsRedirection(options =>
-{
-    options.HttpsPort = 5002;
-});*/
 
-
-// Generate a random secure secret key
-/*byte[] GenerateRandomSecretKey()
-{
-    var secretKey = new byte[32]; // 32 bytes = 256 bits
-    using (var rng = RandomNumberGenerator.Create())
-    {
-        rng.GetBytes(secretKey);
-    }
-    return secretKey;
-}*/
-
-// Retrieve the secret key
-//var secretKey = GenerateRandomSecretKey();
 
 // Update the appsettings.json file with the actual secret key
 var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
 var appSettingsJson = File.ReadAllText(appSettingsPath);
 dynamic appSettings = Newtonsoft.Json.JsonConvert.DeserializeObject(appSettingsJson);
-/*appSettings["JWT"]["SecretKey"] = Convert.ToBase64String(secretKey);
-File.WriteAllText(appSettingsPath, Newtonsoft.Json.JsonConvert.SerializeObject(appSettings));
-*/
+
 // JWT authentication configuration
 var issuer = appSettings["JWT"]["Issuer"].Value;
 var audience = appSettings["JWT"]["Audience"].Value;
@@ -145,35 +125,13 @@ builder.WebHost.ConfigureKestrel(options =>
 });
 
 
-/*var kubeconfig = KubernetesClientConfiguration.BuildConfigFromConfigFile();
-    var client = new Kubernetes(kubeconfig);
-    // Retrieve the Secret
-    var secret = client.ReadNamespacedSecret("marlin-secret", "default");
-    // Get the certificate data and password from the Secret
-    // ...
 
-    var certificateData = secret.Data["certificate.pfx"];
-    var certificatePassword = Encoding.UTF8.GetString(secret.Data["password"]);
-
-    // Save the certificate data to a temporary file
-    var certificateFilePath = Path.Combine(Directory.GetCurrentDirectory(), "temp_certificate.pfx");
-    File.WriteAllBytes(certificateFilePath, certificateData);
-
-    builder.WebHost.ConfigureKestrel(serverOptions =>
-    {
-        serverOptions.ListenAnyIP(443, listenOptions =>
-        {
-            listenOptions.UseHttps(certificateFilePath, certificatePassword);
-        });
-    });*/
-
-// ...
 
 
 var app = builder.Build();
     app.UseCors(origins);
     app.UseHttpsRedirection();
-    // Enable authentication and authorization
+   
     app.UseAuthentication();
     app.UseAuthorization();
 

@@ -28,7 +28,7 @@ namespace Marlin.sqlite.Controllers
             {
                 foreach (var retroBonus in retroBonuses)
                 {
-                    // Check if a record with the same RetroBonusID exists in the database
+                    
                     var existingRetroBonus = await _context.RetroBonusHeaders
                         .FirstOrDefaultAsync(rb => rb.RetroBonusID == retroBonus.RetroBonusID);
 
@@ -39,15 +39,13 @@ namespace Marlin.sqlite.Controllers
                     }
                     else
                     {
-                        // If the record with the specified RetroBonusID exists, update its non-key properties
-                        // Exclude the Id property from modification
+                        
                         _context.Entry(existingRetroBonus).State = EntityState.Detached;
-                        retroBonus.Id = existingRetroBonus.Id; // Preserve the existing Id
+                        retroBonus.Id = existingRetroBonus.Id; 
                         _context.Update(retroBonus);
                     }
 
-                    // Update related entities (RetroBonusDetails, RetroBonusPlanRanges) if needed
-                    // You may need to handle related entities as well, depending on your data structure
+                    
                 }
 
                 // Commit changes to the database
@@ -58,8 +56,7 @@ namespace Marlin.sqlite.Controllers
             }
             catch (DbUpdateException ex)
             {
-                // Handle exceptions and provide a meaningful error response
-                // (similar to your existing error handling code)
+                
                 Console.WriteLine($"Error occurred while saving data: {ex.Message}");
 
                 if (ex.InnerException != null)

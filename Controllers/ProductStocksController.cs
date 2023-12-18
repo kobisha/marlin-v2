@@ -62,7 +62,7 @@ namespace Marlin.sqlite.Controllers
 
 
 
-                    // Add more fields as necessary, following the same pattern
+                    
                 });
 
                 var response = new

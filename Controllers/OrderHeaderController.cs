@@ -70,7 +70,7 @@ namespace Marlin.sqlite.Controllers
                     StatusID = d.StatusID
                     
 
-                    // Add more fields as necessary, following the same pattern
+                    
                 });
 
                 var response = new

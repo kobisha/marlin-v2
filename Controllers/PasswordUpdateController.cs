@@ -24,24 +24,24 @@ namespace Marlin.sqlite.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdatePassword(int userID, [FromBody] PasswordUpdateModel passwordUpdate)
         {
-            // Find the user by UserID
+            
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UserID == userID);
 
             if (user == null)
             {
-                return NotFound(); // User not found
+                return NotFound(); 
             }
 
-            // Verify the old password
+            
             if (user.Password != passwordUpdate.OldPassword)
             {
                 return BadRequest("Incorrect old password");
             }
 
-            // Update the password with the new password
+            
             user.Password = passwordUpdate.NewPassword;
 
-            // Save changes to the database
+            
             await _context.SaveChangesAsync();
 
             return Ok("Password updated successfully");

@@ -71,55 +71,7 @@ namespace Marlin.sqlite.Controllers
         }
 
 
-        /*  [HttpGet]
-
-          public IActionResult GetData(int page = 1, int pageSize = 10)
-          {
-              try
-              {
-                  var totalCount = _context.Shops.Count();
-
-                  var data = _context.Shops
-                      .Skip((page - 1) * pageSize)
-                      .Take(pageSize)
-                      .ToList();
-
-                  var formattedData = data.Select(d => new
-                  {
-
-                      AccountID = d.AccountID,
-                      ShopID = d.ShopID,
-                      SourceCode = d.SourceCode,
-                      Name = d.Name,
-                      Description = d.Description,
-                      Address = d.Address,
-                      ContactPerson = d.ContactPerson,
-                      ContactNumber = d.ContactNumber,
-                      Email = d.Email,
-                      Region = d.Region,
-                      Format = d.Format,
-                      GPS = d.GPS
-
-                      // Add more fields as necessary, following the same pattern
-                  });
-
-                  var response = new
-                  {
-                      TotalCount = totalCount,
-                      Page = page,
-                      PageSize = pageSize,
-                      Data = formattedData,
-                      PreviousPage = page > 1 ? Url.Action("GetData", new { page = page - 1, pageSize }) : null,
-                      NextPage = page < (totalCount + pageSize - 1) / pageSize ? Url.Action("GetData", new { page = page + 1, pageSize }) : null
-                  };
-
-                  return Ok(response);
-              }
-              catch (Exception e)
-              {
-                  return BadRequest(new { error = e.Message });
-              }
-          }*/
+        
 
         [HttpGet]
 

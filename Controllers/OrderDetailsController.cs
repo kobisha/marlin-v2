@@ -66,7 +66,7 @@ namespace Marlin.sqlite.Controllers
                     Amount = d.Amount,
                     ReservedQuantity = d.ReservedQuantity
 
-                    // Add more fields as necessary, following the same pattern
+                    
                 });
 
                 var response = new

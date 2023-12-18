@@ -35,7 +35,7 @@ namespace Marlin.sqlite.Controllers
                 return Unauthorized();
             }
 
-            // Get the corresponding user from the Users model
+            
             var user = GetUserFromDatabase(userInfo.Email);
 
             if (user == null || user.Password != loginModel.Password)
