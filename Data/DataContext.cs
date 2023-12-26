@@ -64,6 +64,7 @@ namespace Marlin.sqlite.Data
         public DbSet<AccountData> AccountData { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
         public DbSet<RetroBonusConditionFront> retroBonusConditionFronts { get; set; }
+        public DbSet<AccountRelations> AccountRelations { get; set; }
 
 
 

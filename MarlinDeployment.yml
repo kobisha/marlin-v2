@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: marlin
-        image: kobisha/marlin:v16
+        image: kobisha/marlin:v18
         ports:
         - containerPort: 443 # Expose port 443 for HTTPS
         volumeMounts:

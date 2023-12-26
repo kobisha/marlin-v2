@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Marlin.sqlite.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231110123604_exchangelog")]
-    partial class exchangelog
+    [Migration("20231226112826_primKey")]
+    partial class primKey
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -147,14 +147,19 @@ namespace Marlin.sqlite.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
-                    b.Property<bool>("Buyer")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
+
+                    b.Property<int>("IsRetailInt")
+                        .HasColumnType("integer")
+                        .HasColumnName("IsRetail");
+
+                    b.Property<int>("IsVendorInt")
+                        .HasColumnType("integer")
+                        .HasColumnName("IsVendor");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -165,12 +170,36 @@ namespace Marlin.sqlite.Migrations
                     b.Property<decimal?>("ProductsCount")
                         .HasColumnType("numeric");
 
-                    b.Property<bool>("Supplier")
-                        .HasColumnType("boolean");
-
                     b.HasKey("LegalCode");
 
                     b.ToTable("AccountData");
+                });
+
+            modelBuilder.Entity("Marlin.sqlite.Models.AccountRelations", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Account")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("Approved")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("ConnectedAccount")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("RequestSent")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AccountRelations");
                 });
 
             modelBuilder.Entity("Marlin.sqlite.Models.AccountSettings", b =>
@@ -458,10 +487,6 @@ namespace Marlin.sqlite.Migrations
                     b.Property<string>("Barcode")
                         .HasColumnType("text");
 
-                    b.Property<string>("InvoiceHeaderID")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("OrderHeaderID")
                         .HasColumnType("text");
 
@@ -557,7 +582,7 @@ namespace Marlin.sqlite.Migrations
                     b.Property<string>("Vendor")
                         .HasColumnType("text");
 
-                    b.Property<string>("VendorID")
+                    b.Property<string>("vendorid")
                         .HasColumnType("text");
 
                     b.HasKey("OrderID");
@@ -831,6 +856,25 @@ namespace Marlin.sqlite.Migrations
                     b.ToTable("RBFronts");
                 });
 
+            modelBuilder.Entity("Marlin.sqlite.Models.RetroBonusConditionFront", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("RangeName")
+                        .HasColumnType("text");
+
+                    b.Property<decimal?>("RangePercent")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("retroBonusConditionFronts");
+                });
+
             modelBuilder.Entity("Marlin.sqlite.Models.RetroBonusDetails", b =>
                 {
                     b.Property<int>("Id")
@@ -960,11 +1004,10 @@ namespace Marlin.sqlite.Migrations
 
             modelBuilder.Entity("Marlin.sqlite.Models.RetroBonusResultFront", b =>
                 {
-                    b.Property<string>("Product")
+                    b.Property<string>("Barcode")
                         .HasColumnType("text");
 
-                    b.Property<string>("Barcode")
-                        .IsRequired()
+                    b.Property<string>("Product")
                         .HasColumnType("text");
 
                     b.Property<decimal?>("PurchaseAmount")
@@ -980,7 +1023,7 @@ namespace Marlin.sqlite.Migrations
                     b.Property<decimal?>("Stock")
                         .HasColumnType("numeric");
 
-                    b.HasKey("Product");
+                    b.HasKey("Barcode");
 
                     b.ToTable("RetroBonusResults");
                 });
@@ -1318,6 +1361,10 @@ namespace Marlin.sqlite.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("PositionInCompany")
                         .IsRequired()
                         .HasColumnType("text");
@@ -1423,7 +1470,6 @@ namespace Marlin.sqlite.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<string>("Product")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("RedStatus")
